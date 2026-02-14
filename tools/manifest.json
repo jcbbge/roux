@@ -1,0 +1,1334 @@
+{
+  "$schema": "https://roux.dev/manifest/v1.schema.json",
+  "version": "1.0.0",
+  "generated_at": "2026-02-14T05:05:28Z",
+  "sources": {
+    "canonical": "~/Documents/metaprompts/_skills/",
+    "third_party": "~/.agents/",
+    "deprecated": "~/Documents/metaprompts/_skills/_deprecated/"
+  },
+  "tools": {
+    "claude": {
+      "name": "Claude Code",
+      "config_dir": "~/.claude/",
+      "paths": {
+        "skills": "~/.claude/skills/",
+        "commands": "~/.claude/commands/",
+        "hooks": "~/.claude/hooks/",
+        "rules": "~/.claude/rules/",
+        "agents": "~/.claude/agents/",
+        "config": "~/.claude/settings.json",
+        "memory": "~/.claude/CLAUDE.md"
+      }
+    },
+    "opencode": {
+      "name": "OpenCode",
+      "config_dir": "~/.config/opencode/",
+      "paths": {
+        "skills": "~/.config/opencode/skills/",
+        "commands": "~/.config/opencode/command/",
+        "plugins": "~/.config/opencode/plugins/",
+        "config": "~/.config/opencode/opencode.json",
+        "memory": "~/.config/opencode/AGENTS.md"
+      }
+    },
+    "intent": {
+      "name": "Intent/Augment",
+      "config_dir": "~/.augment/",
+      "paths": {
+        "skills": "~/.augment/skills/",
+        "rules": "~/.augment/rules/",
+        "config": "~/.augment/settings.json"
+      },
+      "reads_from": [
+        "claude"
+      ]
+    },
+    "auggie": {
+      "name": "Auggie CLI",
+      "config_dir": "~/.augment/",
+      "paths": {},
+      "reads_from": [
+        "claude",
+        "intent"
+      ]
+    },
+    "omp": {
+      "name": "OMP CLI",
+      "config_dir": "~/.omp/",
+      "paths": {
+        "config": "~/.omp/agent/config.yml"
+      },
+      "flags": {
+        "skills": "--skills=<pattern>",
+        "extensions": "-e/--extension=<value>"
+      },
+      "notes": "Has --skills flag and skills.enableSkillCommands=true but no skills directory exists. Discovery mechanism unknown."
+    }
+  },
+  "items": [
+    {
+      "id": "backend-first-security",
+      "type": "skill",
+      "name": "Backend-First Security",
+      "description": "Zero-trust backend-first architecture for Supabase/Next.js preventing vibe-coding vulnerabilities with RLS, service role, and input validation",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/backend-first-security/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Knowledge",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "active",
+      "audit": {
+        "classification": "keep",
+        "notes": "Domain knowledge - security patterns the agent wouldn't know"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/backend-first-security"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/backend-first-security"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "building-with-solidjs",
+      "type": "skill",
+      "name": "Building with SolidJS",
+      "description": "Build SolidJS applications using fine-grained reactivity, reactive primitives (signals, effects, memos, stores), and component patterns",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/building-with-solidjs/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Knowledge",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "active",
+      "audit": {
+        "classification": "keep",
+        "notes": "Framework-specific patterns - domain knowledge the agent wouldn't know"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/building-with-solidjs"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/building-with-solidjs"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "building-with-solidstart",
+      "type": "skill",
+      "name": "Building with SolidStart",
+      "description": "Build full-stack applications with SolidStart, the meta-framework for SolidJS",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/building-with-solidstart/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Knowledge",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "active",
+      "audit": {
+        "classification": "keep",
+        "notes": "Framework-specific patterns - domain knowledge the agent wouldn't know"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/building-with-solidstart"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/building-with-solidstart"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "cognitive-approaches",
+      "type": "skill",
+      "name": "Cognitive Approaches",
+      "description": "Mental models for problem-solving - Feynman visualization, Hamming constraints, Taoist flow, and cognitive faculties for agents",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/cognitive-approaches/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Composition",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "pending_merge",
+      "audit": {
+        "classification": "merge",
+        "merge_with": "meta-agent-template",
+        "merge_survivor": "cognitive-approaches",
+        "notes": "Overlapping mental model content - consolidate with meta-agent-template"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/cognitive-approaches"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/cognitive-approaches"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "debugging-with-logs",
+      "type": "skill",
+      "name": "Debugging with Logs",
+      "description": "Implement effective debugging using wide events (canonical log lines) for web applications, APIs, and servers",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/debugging-with-logs/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Knowledge",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "active",
+      "audit": {
+        "classification": "keep",
+        "notes": "Technical practice the agent needs guidance on"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/debugging-with-logs"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/debugging-with-logs"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "designing-apis",
+      "type": "skill",
+      "name": "Designing APIs",
+      "description": "Design REST APIs that are simple, stable, and scalable",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/designing-apis/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Knowledge",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "active",
+      "audit": {
+        "classification": "keep",
+        "notes": "API design patterns - domain knowledge"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/designing-apis"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/designing-apis"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "ending-session",
+      "type": "skill",
+      "name": "Ending Session",
+      "description": "Write NEXT_STEPS.md with what to do next. Simple handoff, git is the log.",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/ending-session/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Behavior",
+        "scope": "Global",
+        "agency": "System",
+        "tension": "Currently Composition (skill), should be Behavior (hook)"
+      },
+      "status": "pending_promotion",
+      "audit": {
+        "classification": "promote",
+        "target_type": "hook",
+        "target_subtype": "Stop",
+        "target_location": "~/.claude/hooks/",
+        "notes": "Should fire on Stop event - check if session is large enough to warrant NEXT_STEPS.md"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/ending-session"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/ending-session"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "evaluating-business-strategy",
+      "type": "skill",
+      "name": "Evaluating Business Strategy",
+      "description": "Analyze problems through commercial viability, market dynamics, competitive positioning, and sustainable business models for solo developers and small teams",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/evaluating-business-strategy/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Composition",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "pending_merge",
+      "audit": {
+        "classification": "merge",
+        "merge_with": "evaluating-product-ideas",
+        "merge_survivor": "evaluating-business-strategy",
+        "notes": "Overlapping evaluation frameworks - consolidate into single evaluation skill"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/evaluating-business-strategy"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/evaluating-business-strategy"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "evaluating-product-ideas",
+      "type": "skill",
+      "name": "Evaluating Product Ideas",
+      "description": "Evaluate product ideas through user value, product-market fit, user experience, and go-to-market strategy",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/evaluating-product-ideas/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Composition",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "pending_merge",
+      "audit": {
+        "classification": "merge",
+        "merge_with": "evaluating-business-strategy",
+        "merge_survivor": "evaluating-business-strategy",
+        "notes": "Overlapping evaluation frameworks - fold into evaluating-business-strategy"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/evaluating-product-ideas"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/evaluating-product-ideas"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "fresh-eyes-review",
+      "type": "skill",
+      "name": "Fresh Eyes Review",
+      "description": "Error detection and validation review with fresh perspective, using specific error category checklist and incremental fixes",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/fresh-eyes-review/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Behavior",
+        "scope": "Session",
+        "agency": "System",
+        "tension": "Currently Composition (skill), should be Behavior (hook)"
+      },
+      "status": "pending_promotion",
+      "audit": {
+        "classification": "promote",
+        "target_type": "hook",
+        "target_subtype": "PostToolUse",
+        "target_location": "~/.claude/hooks/",
+        "notes": "Should fire after tool use to catch errors automatically"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/fresh-eyes-review"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/fresh-eyes-review"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "meta-agent-template",
+      "type": "skill",
+      "name": "Meta Agent Template",
+      "description": "XML-based observer/testing agent template with strict boundaries, cognitive framework, and role enforcement",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/meta-agent-template/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Composition",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "pending_merge",
+      "audit": {
+        "classification": "merge",
+        "merge_with": "cognitive-approaches",
+        "merge_survivor": "cognitive-approaches",
+        "notes": "Overlapping agent framework content - fold into cognitive-approaches"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/meta-agent-template"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/meta-agent-template"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "metaprompt-process",
+      "type": "skill",
+      "name": "Metaprompt Process (Sigiling Inbox)",
+      "description": "Collaborative exploration of captured curiosities. Kitchen-table processing where we sit with ideas, extract kernels, make non-obvious connections, and decide what to build/integrate/learn.",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/metaprompt-process/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Composition",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "active",
+      "audit": {
+        "classification": "undecided",
+        "notes": "Need user input on whether this is actively used vs session-mining"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/metaprompt-process"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/metaprompt-process"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "prd",
+      "type": "skill",
+      "name": "PRD",
+      "description": "Create detailed Product Requirement Documents with full scope and specifications for agent implementation",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/prd/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Composition",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "pending_merge",
+      "audit": {
+        "classification": "merge",
+        "merge_with": "project-documentation",
+        "merge_survivor": "prd",
+        "notes": "Overlapping documentation generation - consolidate into single documentation skill"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/prd"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/prd"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "project-documentation",
+      "type": "skill",
+      "name": "Project Documentation",
+      "description": "Create engaging FOR[yourname].md project documentation with architecture, lessons learned, and narrative techniques",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/project-documentation/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Composition",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "pending_merge",
+      "audit": {
+        "classification": "merge",
+        "merge_with": "prd",
+        "merge_survivor": "prd",
+        "notes": "Overlapping documentation generation - fold into prd"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/project-documentation"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/project-documentation"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "refactor",
+      "type": "skill",
+      "name": "Refactor",
+      "description": "Surgical code refactoring to improve maintainability without changing behavior",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/refactor/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Composition",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "pending_merge",
+      "audit": {
+        "classification": "merge",
+        "merge_with": "refactoring-framework",
+        "merge_survivor": "refactor",
+        "notes": "Same purpose - consolidate refactoring-framework's 12-dimension review into refactor"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/refactor"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/refactor"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "refactoring-framework",
+      "type": "skill",
+      "name": "Refactoring Framework",
+      "description": "12-dimension code review and refactoring with balanced constraints - maintainability, security, preservation, incrementality",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/refactoring-framework/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Behavior",
+        "scope": "Session",
+        "agency": "System",
+        "tension": "Currently Composition (skill), could become Behavior (hook) post-merge"
+      },
+      "status": "pending_merge",
+      "audit": {
+        "classification": "merge",
+        "merge_with": "refactor",
+        "merge_survivor": "refactor",
+        "target_type": "hook",
+        "target_subtype": "PreToolUse",
+        "notes": "Fold 12-dimension review into refactor, then promote review checklist to PreToolUse hook"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/refactoring-framework"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/refactoring-framework"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "security-checklist",
+      "type": "skill",
+      "name": "Security Checklist",
+      "description": "VPS security hardening checklist with 10-minute emergency version - SSH, UFW, Fail2ban, updates, backups",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/security-checklist/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Knowledge",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "active",
+      "audit": {
+        "classification": "keep",
+        "notes": "Operational knowledge - security hardening procedures"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/security-checklist"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/security-checklist"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "self-hosting-vps-ubuntu",
+      "type": "skill",
+      "name": "Self-Hosting VPS Ubuntu",
+      "description": "Set up and secure Ubuntu 24.04 LTS VPS for self-hosting web applications and developer tools",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/self-hosting-vps-ubuntu/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Knowledge",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "active",
+      "audit": {
+        "classification": "keep",
+        "notes": "Operational knowledge - VPS setup procedures"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/self-hosting-vps-ubuntu"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/self-hosting-vps-ubuntu"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "session-mining",
+      "type": "skill",
+      "name": "Session Mining",
+      "description": "Extract reusable patterns, skills, and prompt primitives from successful AI conversations",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/session-mining/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Composition",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "active",
+      "audit": {
+        "classification": "keep",
+        "notes": "Meta-cognitive skill - separate from metaprompt-process"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/session-mining"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/session-mining"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "starting-session",
+      "type": "skill",
+      "name": "Starting Session",
+      "description": "Read NEXT_STEPS.md and show what to do next. Fast session start.",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/starting-session/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Behavior",
+        "scope": "Global",
+        "agency": "System",
+        "tension": "Currently Composition (skill), should be Behavior (hook)"
+      },
+      "status": "pending_promotion",
+      "audit": {
+        "classification": "promote",
+        "target_type": "hook",
+        "target_subtype": "SessionStart",
+        "target_location": "~/.claude/hooks/",
+        "notes": "Should fire on SessionStart event - auto-read NEXT_STEPS.md"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/starting-session"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/starting-session"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "timestamp-protocol",
+      "type": "skill",
+      "name": "Timestamp Protocol",
+      "description": "Temporal anchoring for long-running conversations - begin each message with current date, trust system date over chat logs",
+      "source": {
+        "path": "~/Documents/metaprompts/_skills/timestamp-protocol/",
+        "entry_point": "SKILL.md"
+      },
+      "roux": {
+        "dimension": "Knowledge",
+        "scope": "Global",
+        "agency": "Agent",
+        "tension": "Currently Composition (skill), should be Knowledge (rule) - always-on context"
+      },
+      "status": "pending_promotion",
+      "audit": {
+        "classification": "promote",
+        "target_type": "rule",
+        "target_location": "~/.claude/CLAUDE.md",
+        "notes": "Simple enough to be a rule in CLAUDE.md rather than an on-demand skill"
+      },
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/timestamp-protocol"
+        },
+        "opencode": {
+          "method": "symlink",
+          "path": "~/.config/opencode/skills/timestamp-protocol"
+        },
+        "intent": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "claude"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "find-skills",
+      "type": "skill",
+      "name": "Find Skills",
+      "description": "Helps users discover and install agent skills from GitHub repositories",
+      "source": {
+        "path": "~/.agents/skills/find-skills/",
+        "entry_point": "SKILL.md",
+        "origin": "vercel-labs/skills",
+        "managed_by": "~/.agents/.skill-lock.json"
+      },
+      "roux": {
+        "dimension": "Capability",
+        "scope": "Global",
+        "agency": "Agent"
+      },
+      "status": "active",
+      "third_party": true,
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/find-skills"
+        },
+        "opencode": null,
+        "intent": {
+          "method": "symlink",
+          "path": "~/.augment/skills/find-skills"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "intent"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "playwriter",
+      "type": "skill",
+      "name": "Playwriter",
+      "description": "Control the user's Chrome browser via Playwriter extension with Playwright code snippets in a stateful local js sandbox",
+      "source": {
+        "path": "~/.agents/skills/playwriter/",
+        "entry_point": "SKILL.md",
+        "origin": "remorses/playwriter",
+        "managed_by": "~/.agents/.skill-lock.json"
+      },
+      "roux": {
+        "dimension": "Capability",
+        "scope": "Global",
+        "agency": "Agent"
+      },
+      "status": "active",
+      "third_party": true,
+      "consumers": {
+        "claude": {
+          "method": "symlink",
+          "path": "~/.claude/skills/playwriter"
+        },
+        "opencode": null,
+        "intent": {
+          "method": "symlink",
+          "path": "~/.augment/skills/playwriter"
+        },
+        "auggie": {
+          "method": "indirect",
+          "via": "intent"
+        },
+        "omp": null
+      }
+    },
+    {
+      "id": "refactor-third-party",
+      "type": "skill",
+      "name": "Refactor (Third-Party)",
+      "description": "Third-party refactor skill from awesome-copilot - not currently linked to any tool",
+      "source": {
+        "path": "~/.agents/skills/refactor/",
+        "entry_point": "SKILL.md",
+        "origin": "github/awesome-copilot",
+        "managed_by": "~/.agents/.skill-lock.json"
+      },
+      "roux": {
+        "dimension": "Composition",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "archived",
+      "third_party": true,
+      "audit": {
+        "classification": "undecided",
+        "notes": "Coexists with canonical refactor skill - not linked anywhere that matters"
+      },
+      "consumers": {
+        "claude": null,
+        "opencode": null,
+        "intent": null,
+        "auggie": null,
+        "omp": null
+      }
+    },
+    {
+      "id": "skill-router",
+      "type": "hook",
+      "subtype": "UserPromptSubmit",
+      "name": "Skill Router",
+      "description": "Scans skills dir, matches descriptions against user prompt, suggests relevant skills",
+      "source": {
+        "path": "~/.claude/hooks/skill-router.sh",
+        "entry_point": "skill-router.sh"
+      },
+      "roux": {
+        "dimension": "Behavior",
+        "scope": "Global",
+        "agency": "System"
+      },
+      "status": "active",
+      "consumers": {
+        "claude": {
+          "method": "native",
+          "path": "~/.claude/hooks/skill-router.sh",
+          "config_ref": {
+            "file": "~/.claude/settings.json",
+            "key": "hooks.UserPromptSubmit"
+          }
+        },
+        "opencode": null,
+        "intent": null,
+        "auggie": null,
+        "omp": null
+      }
+    },
+    {
+      "id": "config-wizard",
+      "type": "command",
+      "name": "Config Wizard",
+      "description": "Interactive configuration wizard for Claude Code settings",
+      "source": {
+        "path": "~/.claude/commands/config-wizard.md",
+        "entry_point": "config-wizard.md"
+      },
+      "roux": {
+        "dimension": "Composition",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "active",
+      "consumers": {
+        "claude": {
+          "method": "native",
+          "path": "~/.claude/commands/config-wizard.md"
+        },
+        "opencode": null,
+        "intent": null,
+        "auggie": null,
+        "omp": null
+      }
+    },
+    {
+      "id": "download-docs",
+      "type": "command",
+      "name": "Download Docs",
+      "description": "Download and cache documentation for offline use",
+      "source": {
+        "path": "~/.claude/commands/download-docs.md",
+        "entry_point": "download-docs.md"
+      },
+      "roux": {
+        "dimension": "Composition",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "active",
+      "consumers": {
+        "claude": {
+          "method": "native",
+          "path": "~/.claude/commands/download-docs.md"
+        },
+        "opencode": null,
+        "intent": null,
+        "auggie": null,
+        "omp": null
+      }
+    },
+    {
+      "id": "rams",
+      "type": "command",
+      "name": "RAMS",
+      "description": "Accessibility review command",
+      "source": {
+        "path": "~/.claude/commands/rams.md",
+        "entry_point": "rams.md"
+      },
+      "roux": {
+        "dimension": "Composition",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "active",
+      "audit": {
+        "classification": "undecided",
+        "notes": "Need user input on whether this is actively used"
+      },
+      "consumers": {
+        "claude": {
+          "method": "native",
+          "path": "~/.claude/commands/rams.md"
+        },
+        "opencode": {
+          "method": "native",
+          "path": "~/.config/opencode/command/rams.md"
+        },
+        "intent": null,
+        "auggie": null,
+        "omp": null
+      }
+    },
+    {
+      "id": "meta-prompt-skills-builder",
+      "type": "file",
+      "name": "Meta Prompt Skills Builder",
+      "description": "Master metaprompt for creating new SKILL.md files - standalone file in skills directory",
+      "source": {
+        "path": "~/.claude/skills/META_PROMPT_SKILLS_BUILDER.md",
+        "entry_point": "META_PROMPT_SKILLS_BUILDER.md"
+      },
+      "roux": {
+        "dimension": "Composition",
+        "scope": "Global",
+        "agency": "Agent"
+      },
+      "status": "active",
+      "audit": {
+        "classification": "undecided",
+        "notes": "Loose file in skills dir - should be a command or moved elsewhere"
+      },
+      "consumers": {
+        "claude": {
+          "method": "native",
+          "path": "~/.claude/skills/META_PROMPT_SKILLS_BUILDER.md"
+        },
+        "opencode": {
+          "method": "native",
+          "path": "~/.config/opencode/skills/META_PROMPT_SKILLS_BUILDER.md"
+        },
+        "intent": null,
+        "auggie": null,
+        "omp": null
+      }
+    },
+    {
+      "id": "claude-config-wizard-file",
+      "type": "file",
+      "name": "Claude Config Wizard (standalone file)",
+      "description": "Configuration wizard document - standalone file in skills directory, separate from the command",
+      "source": {
+        "path": "~/.claude/skills/claude-config-wizard.md",
+        "entry_point": "claude-config-wizard.md"
+      },
+      "roux": {
+        "dimension": "Composition",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "active",
+      "audit": {
+        "classification": "undecided",
+        "notes": "Loose file in skills dir - may overlap with config-wizard command"
+      },
+      "consumers": {
+        "claude": {
+          "method": "native",
+          "path": "~/.claude/skills/claude-config-wizard.md"
+        },
+        "opencode": {
+          "method": "native",
+          "path": "~/.config/opencode/skills/claude-config-wizard.md"
+        },
+        "intent": null,
+        "auggie": null,
+        "omp": null
+      }
+    },
+    {
+      "id": "offline-docs-downloader-file",
+      "type": "file",
+      "name": "Offline Docs Downloader (standalone file)",
+      "description": "Documentation downloader document - standalone file in skills directory, separate from the command",
+      "source": {
+        "path": "~/.claude/skills/offline-docs-downloader.md",
+        "entry_point": "offline-docs-downloader.md"
+      },
+      "roux": {
+        "dimension": "Composition",
+        "scope": "Session",
+        "agency": "Agent"
+      },
+      "status": "active",
+      "audit": {
+        "classification": "undecided",
+        "notes": "Loose file in skills dir - may overlap with download-docs command"
+      },
+      "consumers": {
+        "claude": {
+          "method": "native",
+          "path": "~/.claude/skills/offline-docs-downloader.md"
+        },
+        "opencode": {
+          "method": "native",
+          "path": "~/.config/opencode/skills/offline-docs-downloader.md"
+        },
+        "intent": null,
+        "auggie": null,
+        "omp": null
+      }
+    },
+    {
+      "id": "theme-sync",
+      "type": "file",
+      "name": "Theme Sync",
+      "description": "Standalone directory in skills dirs - not a canonical skill, not symlinked from source",
+      "source": {
+        "path": "~/.claude/skills/theme-sync/",
+        "entry_point": null
+      },
+      "roux": {
+        "dimension": "Environment",
+        "scope": "Global",
+        "agency": "System"
+      },
+      "status": "active",
+      "audit": {
+        "classification": "undecided",
+        "notes": "Standalone directory in Claude and OpenCode skills dirs - purpose unclear"
+      },
+      "consumers": {
+        "claude": {
+          "method": "native",
+          "path": "~/.claude/skills/theme-sync/"
+        },
+        "opencode": {
+          "method": "native",
+          "path": "~/.config/opencode/skills/theme-sync/"
+        },
+        "intent": null,
+        "auggie": null,
+        "omp": null
+      }
+    },
+    {
+      "id": "ascii-task-protocol",
+      "type": "config_fragment",
+      "name": "ASCII Task Protocol",
+      "description": "Shared task tracking format used across Claude and OpenCode",
+      "source": {
+        "path": "~/.claude/CLAUDE.md",
+        "section": "ASCII Task Protocol"
+      },
+      "roux": {
+        "dimension": "Interaction",
+        "scope": "Global",
+        "agency": "Agent"
+      },
+      "status": "active",
+      "consumers": {
+        "claude": {
+          "method": "native",
+          "path": "~/.claude/CLAUDE.md",
+          "section": "ASCII Task Protocol"
+        },
+        "opencode": {
+          "method": "native",
+          "path": "~/.config/opencode/AGENTS.md",
+          "section": "ASCII Task Protocol"
+        },
+        "intent": null,
+        "auggie": null,
+        "omp": null
+      }
+    },
+    {
+      "id": "git-conventions",
+      "type": "config_fragment",
+      "name": "Git Conventions",
+      "description": "Shared git workflow conventions - tool-specific commit aliases (gitas claude/opencode commit)",
+      "source": {
+        "path": "~/.claude/CLAUDE.md",
+        "section": "Git Conventions"
+      },
+      "roux": {
+        "dimension": "Interaction",
+        "scope": "Global",
+        "agency": "Agent"
+      },
+      "status": "active",
+      "consumers": {
+        "claude": {
+          "method": "native",
+          "path": "~/.claude/CLAUDE.md",
+          "section": "Git Conventions"
+        },
+        "opencode": {
+          "method": "native",
+          "path": "~/.config/opencode/AGENTS.md",
+          "section": "Git Conventions"
+        },
+        "intent": null,
+        "auggie": null,
+        "omp": null
+      }
+    }
+  ]
+}
